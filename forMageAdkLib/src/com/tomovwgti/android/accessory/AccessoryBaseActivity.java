@@ -29,7 +29,9 @@ import android.view.MenuItem;
 
 import com.android.future.usb.UsbAccessory;
 import com.android.future.usb.UsbManager;
+import com.tomovwgti.android.accessory.io.ADKCommandAbstractReciever;
 import com.tomovwgti.android.accessory.io.ADKCommandSender;
+import com.tomovwgti.android.accssory.R;
 
 public abstract class AccessoryBaseActivity extends Activity {
     private static final String TAG = AccessoryBaseActivity.class.getSimpleName();
@@ -43,12 +45,14 @@ public abstract class AccessoryBaseActivity extends Activity {
     private Accessory mOpenAccessory;
 
     private ADKCommandSender mSender;
+    private ADKCommandAbstractReciever mReciever;
 
     /**
      * nofity USB is atached
      */
     protected void onUsbAtached() {
         showControls();
+        setReciever();
     };
 
     /**
@@ -118,9 +122,20 @@ public abstract class AccessoryBaseActivity extends Activity {
 
         if (mOpenAccessory.isConnected()) {
             showControls();
+            setReciever();
         } else {
             hideControls();
         }
+    }
+
+    protected ADKCommandAbstractReciever createReciever() {
+        return null;
+    }
+
+    private void setReciever() {
+        // Command Receiver
+        mReciever = createReciever();
+        mOpenAccessory.setListener(mReciever);
     }
 
     @Override
@@ -201,5 +216,7 @@ public abstract class AccessoryBaseActivity extends Activity {
     /**
      * Menu ADK is not connected
      */
-    abstract protected void hideControls();
+    protected void hideControls() {
+        setContentView(R.layout.no_device);
+    }
 }
