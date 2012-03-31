@@ -148,7 +148,7 @@ public abstract class AccessoryBaseActivity extends Activity {
     }
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
 
         if (mOpenAccessory.isConnected()) {
@@ -174,18 +174,27 @@ public abstract class AccessoryBaseActivity extends Activity {
         } else {
             Log.d(TAG, "mAccessory is null");
         }
+
+        onResumeActivity();
+    }
+
+    protected void onResumeActivity() {
     }
 
     @Override
-    public void onPause() {
+    protected void onPause() {
+        onPauseActivity();
         mSender = null;
         mOpenAccessory.close();
         mUsbAccessory = null;
         super.onPause();
     }
 
+    protected void onPauseActivity() {
+    }
+
     @Override
-    public void onDestroy() {
+    protected void onDestroy() {
         unregisterReceiver(mUsbReceiver);
         mOpenAccessory.removeListener();
         super.onDestroy();
