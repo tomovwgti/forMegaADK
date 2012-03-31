@@ -46,11 +46,26 @@ public class ADKCommandSender {
      * @param value
      */
     public void sendCommand(byte command, byte target, int value) {
-        if (value > 255)
-            value = 255;
-
         if (target != -1) {
             openAccessory.write(command, target, (byte) value);
         }
     }
+
+    /**
+     * Send a command to ADK (Async)
+     * 
+     * @param command
+     * @param target
+     * @param value
+     */
+    public void sendCommandAsync(final byte command, final byte target, final int value) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                sendCommand(command, target, value);
+            }
+        }).start();
+    }
+
 }
