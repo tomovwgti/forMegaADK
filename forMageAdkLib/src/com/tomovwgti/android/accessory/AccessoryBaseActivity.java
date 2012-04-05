@@ -34,7 +34,7 @@ import com.tomovwgti.android.accessory.io.ADKCommandSender;
 import com.tomovwgti.android.accssory.R;
 
 public abstract class AccessoryBaseActivity extends Activity {
-    private static final String TAG = AccessoryBaseActivity.class.getSimpleName();
+    static final String TAG = AccessoryBaseActivity.class.getSimpleName();
 
     private static final String ACTION_USB_PERMISSION = "com.tomovwgti.android.action.USB_PERMISSION";
 
@@ -184,9 +184,9 @@ public abstract class AccessoryBaseActivity extends Activity {
     @Override
     protected void onPause() {
         onPauseActivity();
-        mSender = null;
-        mOpenAccessory.close();
-        mUsbAccessory = null;
+        // mSender = null;
+        // mOpenAccessory.close();
+        // mUsbAccessory = null;
         super.onPause();
     }
 
@@ -205,6 +205,9 @@ public abstract class AccessoryBaseActivity extends Activity {
         if (item.getTitle().equals("Simulate")) {
             showControls();
         } else if (item.getTitle().equals("Quit")) {
+            mSender = null;
+            mOpenAccessory.close();
+            mUsbAccessory = null;
             finish();
         }
         return true;

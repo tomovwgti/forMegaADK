@@ -21,10 +21,9 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 
-/* This Activity does nothing but receive USB_DEVICE_ATTACHED events from the
- * USB service and springboards to the main Gallery activity
- */
 public abstract class UsbAccessoryAbstractActivity extends Activity {
+    static final String TAG = UsbAccessoryAbstractActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

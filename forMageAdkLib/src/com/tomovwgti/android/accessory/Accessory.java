@@ -34,7 +34,7 @@ import com.android.future.usb.UsbManager;
  * @author itog
  */
 public class Accessory implements Runnable {
-    private static final String TAG = Accessory.class.getSimpleName();
+    static final String TAG = Accessory.class.getSimpleName();
 
     private FileInputStream mInputStream;
     private FileOutputStream mOutputStream;

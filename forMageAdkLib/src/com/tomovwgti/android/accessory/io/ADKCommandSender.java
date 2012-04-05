@@ -20,7 +20,7 @@ import com.tomovwgti.android.accessory.Accessory;
  * Send command to MEGA ADK hardware
  */
 public class ADKCommandSender {
-    private static final String TAG = ADKCommandSender.class.getSimpleName();
+    static final String TAG = ADKCommandSender.class.getSimpleName();
 
     private static ADKCommandSender sSender = null;
     private Accessory openAccessory;

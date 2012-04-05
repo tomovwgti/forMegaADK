@@ -15,6 +15,7 @@
 package com.tomovwgti.android.accessory.io;
 
 public abstract class OutputData {
+    static final String TAG = OutputData.class.getSimpleName();
 
     private ADKCommandSender mSender = null;
 
