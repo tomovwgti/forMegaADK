@@ -16,8 +16,13 @@ package com.tomovwgti.megaadk;
 
 import com.tomovwgti.android.accessory.io.OutputData;
 
+/**
+ * LED クラス
+ * 
+ * @author tomo
+ */
 public class Led extends OutputData {
-    private static final String TAG = Led.class.getSimpleName();
+    static final String TAG = Led.class.getSimpleName();
 
     // ADK device command
     private static final byte LED_COMMAND = 3;

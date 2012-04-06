@@ -26,6 +26,7 @@ public class MegaAdkLedActivity extends AccessoryBaseActivity {
     protected void showControls() {
         setContentView(R.layout.main);
 
+        // LEDをオブジェクトとして扱います
         final Led led = new Led();
 
         // Initialize
@@ -41,6 +42,7 @@ public class MegaAdkLedActivity extends AccessoryBaseActivity {
                 } else {
                     led.light = 0;
                 }
+                // オブジェクトのメソッドコールでADKへの送信を行います
                 led.sendData();
             }
         });
