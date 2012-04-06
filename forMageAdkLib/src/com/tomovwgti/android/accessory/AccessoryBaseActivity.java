@@ -29,7 +29,7 @@ import android.view.MenuItem;
 
 import com.android.future.usb.UsbAccessory;
 import com.android.future.usb.UsbManager;
-import com.tomovwgti.android.accessory.io.ADKCommandAbstractReciever;
+import com.tomovwgti.android.accessory.io.ADKCommandAbstractReceiver;
 import com.tomovwgti.android.accessory.io.ADKCommandSender;
 import com.tomovwgti.android.accssory.R;
 
@@ -45,7 +45,7 @@ public abstract class AccessoryBaseActivity extends Activity {
     private Accessory mOpenAccessory;
 
     private ADKCommandSender mSender;
-    private ADKCommandAbstractReciever mReciever;
+    private ADKCommandAbstractReceiver mReciever;
 
     /**
      * nofity USB is atached
@@ -128,7 +128,7 @@ public abstract class AccessoryBaseActivity extends Activity {
         }
     }
 
-    protected ADKCommandAbstractReciever createReciever() {
+    protected ADKCommandAbstractReceiver createReciever() {
         return null;
     }
 

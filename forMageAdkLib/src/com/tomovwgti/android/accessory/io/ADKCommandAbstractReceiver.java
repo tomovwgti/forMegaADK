@@ -20,7 +20,7 @@ import android.os.Message;
 import com.tomovwgti.android.accessory.AccessoryListener;
 import com.tomovwgti.android.accessory.UsbAccessoryAbstractActivity;
 
-public abstract class ADKCommandAbstractReciever implements AccessoryListener {
+public abstract class ADKCommandAbstractReceiver implements AccessoryListener {
     static final String TAG = UsbAccessoryAbstractActivity.class.getSimpleName();
 
     protected Handler mHandler = new Handler() {
