@@ -128,13 +128,13 @@ public abstract class AccessoryBaseActivity extends Activity {
         }
     }
 
-    protected ADKCommandAbstractReceiver createReciever() {
+    protected ADKCommandAbstractReceiver createReceiver() {
         return null;
     }
 
     private void setReciever() {
         // Command Receiver
-        mReciever = createReciever();
+        mReciever = createReceiver();
         mOpenAccessory.setListener(mReciever);
     }
 
